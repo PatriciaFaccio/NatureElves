@@ -1,6 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import random
 import sys
-from random import choice #esse não tem no código do professor
 
 import pygame
 from pygame import Surface, Rect
@@ -16,13 +17,12 @@ from code.Player import Player
 
 
 class Level:
-
     def __init__(self, window: Surface, name: str, game_mode: str, player_score: list[int]):
         self.timeout = TIMEOUT_LEVEL
         self.window = window
         self.name = name
         self.game_mode = game_mode
-        self.entity_list = list[Entity] = []
+        self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity(self.name + 'Bg'))
         player = EntityFactory.get_entity('Player1')
         player.score = player_score[0]
@@ -33,8 +33,6 @@ class Level:
             self.entity_list.append(player)
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_TIME)
         pygame.time.set_timer(EVENT_TIMEOUT, TIMEOUT_STEP) #100 mili segundos
-
-
 
     def run(self, player_score: list[int]):
         pygame.mixer_music.load(f'./asset/{self.name}.mp3')
@@ -54,7 +52,6 @@ class Level:
                     self.level_text(14, f'Player1 - Health: {ent.health} | Score: {ent.score}', C_GREEN, (10, 25))
                 if ent.name == 'Player2':
                     self.level_text(14, f'Player2 - Health: {ent.health} | Score: {ent.score}', C_CYAN, (10, 45))
-
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -88,7 +85,6 @@ class Level:
             #Collisions
             EntityMediator.verify_collision(entity_list=self.entity_list)
             EntityMediator.verify_health(entity_list=self.entity_list)
-
 
     def level_text(self, text_size: int, text: str, text_color: tuple, text_pos: tuple):
         text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)

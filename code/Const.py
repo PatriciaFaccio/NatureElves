@@ -9,7 +9,7 @@ C_CYAN = (0, 128, 128)
 
 # E
 EVENT_ENEMY = pygame.USEREVENT + 1
-EVENT_TIMEOUT = pygame.USEREVENT + 1
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
@@ -108,6 +108,7 @@ ENTITY_SHOT_DELAY = {
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
                'NEW GAME 2P - COMPETITIVE',
+               'SCORE',
                'EXIT')
 # P
 PLAYER_KEY_UP = {'Player1': pygame.K_UP,

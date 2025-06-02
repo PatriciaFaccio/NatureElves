@@ -15,7 +15,7 @@ class DBProxy:
                                 '''
                                 )
     def save(self, score_dict: dict):
-        self.connection.execute('INSERT INTO dados (name, score, date) VALUES (:name, :score, :date', score_dict)
+        self.connection.execute('INSERT INTO dados (name, score, date) VALUES (:name, :score, :date)', score_dict)
         self.connection.commit()
 
     def retrieve_top10(self) -> list:
