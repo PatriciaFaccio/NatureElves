@@ -1,10 +1,11 @@
+import sys
 
 import pygame
 
 from code.Const import WIN_WIDTH, WIN_HEIGHT, MENU_OPTION
 from code.Level import Level
 from code.Menu import Menu
-from code.Scoreeee import Score
+from code.Score import Score
 
 
 class Game:
@@ -34,5 +35,6 @@ class Game:
                 pygame.quit()  # Close Window
                 quit()  # end pygame
             else:
-                pass
+                pygame.quit()
+                sys.exit()
 
